@@ -1,0 +1,6 @@
+package com.perna.projetoveiculo.domain;
+
+public class Veiculo implements Serializable{
+	private static final long serialVersionUID = 1L;
+
+}

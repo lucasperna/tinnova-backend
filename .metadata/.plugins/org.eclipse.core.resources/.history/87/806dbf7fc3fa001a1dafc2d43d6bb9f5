@@ -1,0 +1,6 @@
+package com.perna.projetoveiculo.dto;
+
+public class VeiculoDTO implements Serializable{
+	private static final long serialVersionUID = 1L;
+
+}

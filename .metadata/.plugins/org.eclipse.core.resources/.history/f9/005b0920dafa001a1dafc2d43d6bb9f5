@@ -1,0 +1,26 @@
+package com.perna.principal;
+
+import java.util.Calendar;
+import java.util.Date;
+
+import com.perna.domain.Voto;
+import com.perna.services.VotoServices;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		
+		Voto voto = new Voto(1000, 800, 150, 50);
+		
+		System.out.println(VotoServices.percentualVotosValidos(voto));
+		System.out.println(VotoServices.percentualVotosBrancos(voto));
+		System.out.println(VotoServices.percentualVotosNulos(voto));
+
+		Date now = new Date();
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(now);
+		cal.add(Calendar.WEEK_OF_YEAR, -1);
+		System.out.println(cal.getTime());
+	}
+
+}

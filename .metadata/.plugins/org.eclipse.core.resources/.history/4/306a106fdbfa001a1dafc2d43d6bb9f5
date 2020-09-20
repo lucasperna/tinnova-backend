@@ -1,0 +1,27 @@
+package com.perna.projetoveiculo.repositories;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.perna.projetoveiculo.domain.Veiculo;
+
+@Repository
+public interface VeiculoRepository extends JpaRepository<Veiculo, Integer>{
+
+	@Transactional(readOnly=true)
+	@Query("SELECT count(*) FROM Veiculo obj WHERE obj.vendido = FALSE")
+	public long countVendidos();
+	
+	@Transactional(readOnly=true)
+	@Query("SELECT c.marca, COUNT(c.marca) FROM Veiculo AS c GROUP BY c.marca ORDER BY c.marca")
+	List<Object[]> countDecada();
+	
+	@Transactional(readOnly=true)
+	@Query("SELECT obj FROM Veiculo obj WHERE obj.created >= :data ORDER BY obj.created")
+	public List<Veiculo> findUltimosVeiculos(@Param("data") String data);
+}

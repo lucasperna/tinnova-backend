@@ -1,0 +1,5 @@
+package com.perna.projetoveiculo.services;
+
+public class VeiculoService {
+
+}

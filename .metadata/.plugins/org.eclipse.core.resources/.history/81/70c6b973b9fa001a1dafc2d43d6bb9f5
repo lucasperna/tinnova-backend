@@ -1,0 +1,5 @@
+package com.perna.projetoveiculo.resources;
+
+public class VeiculoResource {
+
+}

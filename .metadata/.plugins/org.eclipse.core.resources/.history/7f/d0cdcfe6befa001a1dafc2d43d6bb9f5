@@ -1,0 +1,6 @@
+package com.perna.projetoveiculo.exceptions;
+
+@ControllerAdvice
+public class ResourceExceptionHandler {
+
+}

@@ -1,0 +1,13 @@
+package com.perna.principal;
+
+public class SomaMultiplos {
+
+	public long somaMultiplos(int n) {
+		if(n % 3 == 0 || n % 5 == 0)
+		{
+			return n + somaMultiplos(n-1);
+		}
+		
+		return somaMultiplos(n-1);
+	}
+}

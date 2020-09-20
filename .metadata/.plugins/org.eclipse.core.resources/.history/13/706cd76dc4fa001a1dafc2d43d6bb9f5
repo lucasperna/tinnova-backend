@@ -1,0 +1,28 @@
+package com.perna.projetoveiculo.dto;
+
+import java.io.Serializable;
+
+import com.perna.projetoveiculo.domain.Veiculo;
+
+public class VeiculoDTO implements Serializable{
+	private static final long serialVersionUID = 1L;
+
+	private Integer id;
+	
+	@NotEmpty(message = "Preenchimento obrigatório")
+	@Length(min = 5, max = 80, message = "O tamanho deve ser entre 5 e 80 caracteres")
+	private String veiculo;
+	
+	private String marca;
+	private Integer ano;
+	private String descricao;
+	private Boolean vendido;
+	
+	public VeiculoDTO() {
+	}
+
+	public VeiculoDTO(Veiculo obj) {
+		this.id = obj.getId();
+		this.veiculo = obj.getVeiculo();
+	}
+}

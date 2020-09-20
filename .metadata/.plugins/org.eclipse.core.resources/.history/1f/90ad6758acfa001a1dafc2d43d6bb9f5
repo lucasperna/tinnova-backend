@@ -1,0 +1,39 @@
+package com.perna.services;
+
+import com.perna.domain.Voto;
+
+public class VotoServices {
+
+	public static double percentualVotosValidos(Voto voto) {
+		if(voto != null)
+		{
+			if(voto.getTotalEleitores() > 0)
+			{
+				return (float)(voto.getValidos()/voto.getTotalEleitores() * 100);
+			}
+		}
+		return 0; 
+	}
+	
+	public static float percentualVotosBrancos(Voto voto) {
+		if(voto != null)
+		{
+			if(voto.getTotalEleitores() > 0)
+			{
+				return voto.getBrancos() / voto.getTotalEleitores();
+			}
+		}
+		return 0; 
+	}
+	
+	public static float percentualVotosNulos(Voto voto) {
+		if(voto != null)
+		{
+			if(voto.getTotalEleitores() > 0)
+			{
+				return voto.getNulos() / voto.getTotalEleitores();
+			}
+		}
+		return 0; 
+	}
+}

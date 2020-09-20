@@ -1,0 +1,5 @@
+package com.perna.projetoveiculo.dto;
+
+public class VeiculoDTO {
+
+}

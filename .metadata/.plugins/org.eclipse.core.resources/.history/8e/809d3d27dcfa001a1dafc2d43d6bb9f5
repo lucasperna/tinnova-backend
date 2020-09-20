@@ -1,0 +1,6 @@
+package com.perna.projetoveiculo.domain.enums;
+
+public class Marcas {
+
+	
+}

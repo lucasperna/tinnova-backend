@@ -1,0 +1,43 @@
+package com.perna.projetoveiculo.services;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.perna.projetoveiculo.domain.Veiculo;
+import com.perna.projetoveiculo.repositories.VeiculoRepository;
+import com.perna.projetoveiculo.services.exceptions.ObjectNotFoundException;
+
+@Service
+public class VeiculoService {
+	
+	@Autowired
+	private VeiculoRepository repo;
+
+	public Veiculo find(Integer id) {
+		Optional<Veiculo> obj = repo.findById(id);
+		return obj.orElseThrow(() -> new ObjectNotFoundException(
+				 "Objeto não encontrado! Id: " + id + ", Tipo: " + Veiculo.class.getName()));
+	}
+	
+	public Veiculo insert(Veiculo obj){
+		obj.setId(null);
+		return repo.save(obj);
+	}
+	
+	public Veiculo update(Veiculo obj){
+		find(obj.getId());
+		return repo.save(obj);
+	}
+	
+	public void delete(Integer id) {
+		find(id);
+		try {
+			repo.deleteById(id);
+		}
+		catch(DataIntegrityViolationException e) {
+			throw new DataIntegrityException("Não é possível excluir categoria com produtos.");
+		}
+	}
+}

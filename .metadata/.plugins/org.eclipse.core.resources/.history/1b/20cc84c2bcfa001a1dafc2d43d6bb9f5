@@ -1,0 +1,5 @@
+package com.perna.projetoveiculo.repositories;
+
+public class VeiculoRepository {
+
+}
