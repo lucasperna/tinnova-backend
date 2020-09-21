@@ -1,0 +1,5 @@
+package com.perna.projetoveiculo.config;
+
+public class DemoController {
+
+}

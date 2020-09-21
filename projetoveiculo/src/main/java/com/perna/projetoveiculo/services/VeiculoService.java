@@ -28,11 +28,14 @@ public class VeiculoService {
 	
 	public Veiculo insert(Veiculo obj){
 		obj.setId(null);
+		obj.setCreated(new Date());
 		return repo.save(obj);
 	}
 	
 	public Veiculo update(Veiculo obj){
-		find(obj.getId());
+		Veiculo newObj = find(obj.getId());
+		obj.setUpdated(new Date());
+		obj.setCreated(newObj.getCreated());
 		return repo.save(obj);
 	}
 	

@@ -16,7 +16,7 @@ public class VeiculoDTO implements Serializable{
 	private Integer id;
 	
 	@NotEmpty(message = "Preenchimento obrigatório")
-	@Length(min = 5, max = 80, message = "O tamanho deve ser entre 5 e 80 caracteres")
+	@Length(min = 3, max = 80, message = "O tamanho deve ser entre 3 e 80 caracteres.")
 	private String veiculo;
 	
 	private String marca;
@@ -24,7 +24,7 @@ public class VeiculoDTO implements Serializable{
 	private String descricao;
 	private Boolean vendido;
 	
-	@JsonFormat(pattern="dd/MM/yyyy")
+	@JsonFormat(pattern="dd/MM/yyyy HH:mm:ss")
 	private Date updated;
 	
 	public VeiculoDTO() {
